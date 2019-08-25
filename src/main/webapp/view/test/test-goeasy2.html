@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+    <script type="text/javascript" src="/statics/boot/js/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+<div class="content">
+    <div id="content">
+        <h1>聊天记录</h1>
+    </div>
+    <form action="" id="goeasy1">
+        输入：<input type="text" name="mes" id="mes">
+        <button type="button" class="btn btn-success" id="but1">提交</button>
+    </form>
+</div>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: "BC-5ef79b4d44d2467799f085015a79dff8"
+    });
+    goEasy.subscribe({
+        channel: "channel",
+        onMessage: function (message) {
+            var con = $("<p>" + message.content + "</p>");
+            $("#content").append(con);
+        }
+    });
+    $("#but1").click(function () {
+        var inp = $("#mes").val();
+        var input = "用户1：" + inp
+        var goEasy = new GoEasy({
+            appkey: "BC-5ef79b4d44d2467799f085015a79dff8"
+        });
+        //GoEasy-OTP可以对appkey进行有效保护,详情请参考​ ​
+        goEasy.publish({
+            channel: "channel",
+            message: input
+        });
+
+    });
+</script>
+</body>
+</html>
