@@ -10,8 +10,7 @@ public class Dog extends Animal {
     public void str() {
         ArrayList<Object> objects = new ArrayList<>();
         for (Object object : objects) {
-            System.out.println(object);
-            System.out.println(object);
+
         }
     }
 }
