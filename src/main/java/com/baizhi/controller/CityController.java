@@ -17,6 +17,7 @@ public class CityController {
     /**
      * 查询所有城市  by provinceid
      *  用于做二级联动
+     *  双抗贷款建安公司法
      * @param provinceId
      * @return
      */
