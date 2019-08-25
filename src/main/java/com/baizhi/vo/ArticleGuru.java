@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 
 @Accessors(chain = true)
 public class ArticleGuru {
+    //这个文件没有咋用到的
     private Guru guru;
     private Article article;
 }
