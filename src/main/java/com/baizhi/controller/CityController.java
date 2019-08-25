@@ -14,6 +14,12 @@ public class CityController {
     @Autowired
     private CityService cityService;
 
+    /**
+     * 查询所有城市  by provinceid
+     *
+     * @param provinceId
+     * @return
+     */
     @RequestMapping("findAllCityByProvinceId")
     public List<City> findAllCityByProvinceId(String provinceId) {
         return cityService.findAllCityByProvinceId(provinceId);
