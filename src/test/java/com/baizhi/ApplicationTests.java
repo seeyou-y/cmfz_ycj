@@ -24,6 +24,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -205,5 +207,17 @@ public class ApplicationTests {
         } catch (ClientException e) {
             e.printStackTrace();
         }
+    }
+    @Test
+    public void test6(){
+        Admin admin = new Admin();
+        String salt = Md5UUIDSaltUtil.getSalt();
+        Md5Hash md5Hash = new Md5Hash("123456",salt,1024);
+        admin.setId(UUID.randomUUID().toString().replace("-",""))
+                .setName("admin0").setRole("svip").setSalt(salt)
+                .setPassword(md5Hash.toString());
+        int i = adminDAO.insertSelective(admin);
+        System.out.println(i);
+
     }
 }

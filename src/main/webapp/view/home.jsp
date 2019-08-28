@@ -46,12 +46,13 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">持名法州后台管理系统</a>
                 </div>
-                <div>
-
+                <div class="navbar-right navbar-brand">
+                    <span style="color: #2aabd2">
                     <shiro:authenticated>
                         欢迎您：<span style="color: red"><shiro:principal></shiro:principal> </span>&emsp;&emsp;&emsp;
                         <a id="out" href="javascript:void(0)">登出</a>
                     </shiro:authenticated>
+                    </span>
                 </div>
 
             </div>

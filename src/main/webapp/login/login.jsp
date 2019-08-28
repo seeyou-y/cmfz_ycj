@@ -88,9 +88,8 @@
                                        minlength="2" class="form-password form-control" id="form-password" required>
                             </div>
                             <div class="form-group">
+                                <input style="width: 289px;height: 50px;border:3px solid #ddd;border-radius: 4px;" class="form-control" type="text" name="code" id="form-code" required>
                                 <img id="captchaImage" style="height: 48px" class="captchaImage" src="${app}/admin/getcode">
-                                <input style="width: 289px;height: 50px;border:3px solid #ddd;border-radius: 4px;"
-                                       type="text" name="code" id="form-code" required>
                             </div>
                             <input type="button" style="width: 400px;border:1px solid #9d9d9d;border-radius: 4px;"
                                    id="loginButtonId" value="登录">
