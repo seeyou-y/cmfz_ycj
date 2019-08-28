@@ -1,36 +1,37 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8"  pageEncoding="UTF-8" isELIgnored="false" %>
+<c:set value="${pageContext.request.contextPath}" var="app"/>
+<html>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap Login Form Template</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/form-elements.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-    <script src="assets/js/jquery-2.2.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.backstretch.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="${app}/login/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${app}/login/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${app}/login/assets/css/form-elements.css">
+    <link rel="stylesheet" href="${app}/login/assets/css/style.css">
+    <link rel="shortcut icon" href="${app}/login/assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${app}/login/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${app}/login/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${app}/login/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="${app}/login/assets/ico/apple-touch-icon-57-precomposed.png">
+    <script src="${app}/login/assets/js/jquery-2.2.1.min.js"></script>
+    <script src="${app}/login/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${app}/login/assets/js/jquery.backstretch.min.js"></script>
+    <script src="${app}/login/assets/js/scripts.js"></script>
+    <script src="${app}/login/assets/js/jquery.validate.min.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#loginButtonId").click(function () {
                 $.ajax({
-                    url: "/admin/login",
+                    url: "${app}/admin/login",
                     type: "post",
                     data: $("#loginForm").serialize(),
                     success: function (data) {
                         if (data.code == 200) {
-                            location.href = "/view/home.html";
+                            location.href = "${app}/view/home.jsp";
                         } else {
                             $("#msgDiv").html("<h3 style='color: red;'>" + data.mes + "</h3>")
                         }
@@ -87,7 +88,7 @@
                                        minlength="2" class="form-password form-control" id="form-password" required>
                             </div>
                             <div class="form-group">
-                                <img id="captchaImage" style="height: 48px" class="captchaImage" src="/admin/getcode">
+                                <img id="captchaImage" style="height: 48px" class="captchaImage" src="${app}/admin/getcode">
                                 <input style="width: 289px;height: 50px;border:3px solid #ddd;border-radius: 4px;"
                                        type="text" name="code" id="form-code" required>
                             </div>

@@ -5,6 +5,9 @@ import com.baizhi.api.MesResponse;
 import com.baizhi.entity.Admin;
 import com.baizhi.service.AdminService;
 import com.baizhi.util.ImageUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,39 +37,43 @@ public class AdminController extends MesResponse {
     public Map<String, Object> adminLogin(Admin admin, String code, HttpServletRequest request) {
         String attribute = (String) request.getSession().getAttribute("code");
         if (attribute.equals(code)) {
-            return adminService.Adminlogin(admin, request);
+            Subject subject = SecurityUtils.getSubject();
+            AuthenticationToken token = new UsernamePasswordToken(admin.getName(),admin.getPassword());
+            try {
+                subject.login(token);
+                return setResultSuceess();
+            } catch (UnknownAccountException e) {
+                return setResultErrorAndMes("用户不存在");
+            }catch (IncorrectCredentialsException e){
+                return setResultErrorAndMes("密码错误");
+            }
         } else {
             return setResult(CustomConstant.HTTP_RES_CODE_VALUE_500, "验证码错误", null);
         }
     }
 
-    /**
+   /* *//**
      * 获取登陆者信息
      *
      * @param request
      * @return
-     */
+     *//*
     @RequestMapping("session")
     public Admin getSession(HttpServletRequest request) {
         Admin admin = (Admin) request.getSession().getAttribute("admin");
         return admin;
-    }
+    }*/
 
     /**
      * 退出登录 消除session
      *
-     * @param request
      * @return
      */
-    @RequestMapping("out")
-    public String outLogin(HttpServletRequest request) {
-        Admin admin = (Admin) request.getSession().getAttribute("admin");
-        if (admin != null) {
-            request.getSession().removeAttribute("admin");
-            return CustomConstant.HTTP_RES_MES_VALUE_SUCCESS;
-        } else {
-            return CustomConstant.HTTP_RES_MES_VALUE_ERROR;
-        }
+    @RequestMapping("logOut")
+    public String outLogin() {
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return CustomConstant.HTTP_RES_MES_VALUE_SUCCESS;
     }
 
 

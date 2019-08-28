@@ -61,7 +61,13 @@ public class MesResponse {
         map.put(CustomConstant.HTTP_RES_DATA_NAME, null);
         return map;
     }
-
+    public Map<String,Object> setResultErrorAndMes(String mes){
+        HashMap<String, Object> map = new HashMap<>();
+        map.put(CustomConstant.HTTP_RES_CODE_NAME, CustomConstant.HTTP_RES_CODE_VALUE_500);
+        map.put(CustomConstant.HTTP_RES_MES_NAME, mes);
+        map.put(CustomConstant.HTTP_RES_DATA_NAME, null);
+        return map;
+    }
     /**
      * {"rows":[当前页结果(list)],"page":"当前页","total":"总页数","records":"总条数" count}
      *

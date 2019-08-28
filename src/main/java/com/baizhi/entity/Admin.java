@@ -22,5 +22,8 @@ public class Admin implements Serializable {
 
     private String password;
 
+    private String salt;
+
+    private String role;
 
 }

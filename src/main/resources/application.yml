@@ -3,8 +3,8 @@ server:
     jsp:
       init-parameters:
         development: true
+    context-path: /cmfz
   port: 8989
-
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -16,7 +16,10 @@ spring:
     multipart:
       enabled: true
       max-file-size: 10MB
-
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
 mybatis:
   mapper-locations: classpath:com/baizhi/mapper/*.xml
   type-aliases-package: com.baizhi.entity

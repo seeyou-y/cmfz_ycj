@@ -32,11 +32,12 @@ public class ShiroFilterConf {
         // AnonymousFilter              匿名过滤器  anon
         //FormAuthenticationFilter    认证过滤器   authc
         HashMap<String, String> map = new HashMap<>();
-        map.put("/login.jsp","anon");
-        map.put("/user/login","anon");
+        map.put("/admin/*","anon");
+        map.put("/login/**","anon");
         map.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
-        shiroFilterFactoryBean.setLoginUrl("/login.jsp");
+        shiroFilterFactoryBean.setLoginUrl("/login/login.jsp");
+
         return shiroFilterFactoryBean;
     }
 
