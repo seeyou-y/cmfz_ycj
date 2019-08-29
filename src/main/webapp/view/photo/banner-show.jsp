@@ -1,13 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" pageEncoding="UTF-8" contentType="text/html; UTF-8" %>
+<c:set value="${pageContext.request.contextPath}" var="app"/>
 <script type="text/javascript">
     $(function () {
         $('#banner-table').jqGrid({
-            url: '/banner/showAllBanner',
+            url: '${app}/banner/showAllBanner',
             //引入bootstrap的UI样式
             styleUI: 'Bootstrap',
             datatype: 'json',
             colNames: ['编号', '图片', '标题', '状态', '创建日期', '详细', '最后修改时间'],
             // 指定表单编辑时提交的路径
-            editurl: '/banner/operBanner',
+            editurl: '${app}/banner/operBanner',
             colModel: [
                 {name: 'id', align: 'center'},
                 {
@@ -15,7 +18,7 @@
                     edittype: "file",
                     editoptions: {enctype: "multipart/form-data"},
                     formatter: function (value, options, row) {
-                        return '<img style="height: 50px;" src="/view/photo/image/' + row.cover + '"/>';
+                        return '<img style="height: 50px;" src="${app}/view/photo/image/' + row.cover + '"/>';
                     }
                 },
                 {name: 'title', align: 'center', editable: true},
@@ -42,7 +45,7 @@
                 afterSubmit: function (response) {
                     var id = response.responseJSON.data;
                     $.ajaxFileUpload({
-                        url: '/banner/upload',
+                        url: '${app}/banner/upload',
                         secureuri: false,
                         fileElementId: 'cover',
                         data: {id: id},
@@ -59,7 +62,7 @@
                 afterSubmit: function (response) {
                     var id = response.responseJSON.data;
                     $.ajaxFileUpload({
-                        url: '/banner/upload',
+                        url: '${app}/banner/upload',
                         secureuri: false,
                         fileElementId: 'cover',
                         data: {id: id},

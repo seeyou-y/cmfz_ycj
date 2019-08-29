@@ -15,8 +15,6 @@
     <script src="${app}/statics/jqgrid/js/trirand/i18n/grid.locale-cn.js" type="text/javascript"></script>
     <script src="${app}/statics/jqgrid/js/trirand/jquery.jqGrid.min.js" type="text/javascript"></script>
     <script src="${app}/statics/jqgrid/js/ajaxfileupload.js" type="text/javascript"></script>
-    <script charset="utf-8" src="${app}/kindeditor/kindeditor-all.js"></script>
-    <script charset="utf-8" src="${app}/kindeditor/lang/zh-CN.js"></script>
     <script src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
     <script type="text/javascript" src="${app}/statics/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="${app}/statics/echarts/china.js"></script>
@@ -73,7 +71,7 @@
                         <div class="panel-body">
                             <ul class="list-group">
                                 <li class="list-group-item"><a
-                                        href="javascript:$('#showHtml').load('${app}/view/photo/banner-show.html')">轮播图详情</a>
+                                        href="javascript:$('#showHtml').load('${app}/view/photo/banner-show.jsp')">轮播图详情</a>
                                 </li>
                             </ul>
                         </div>
@@ -91,7 +89,7 @@
                         <div class="panel-body">
                             <ul class="list-group">
                                 <li class="list-group-item"><a
-                                        href="javascript:$('#showHtml').load('${app}/view/album/album-show.html')">查看专辑</a>
+                                        href="javascript:$('#showHtml').load('${app}/view/album/album-show.jsp')">查看专辑</a>
                                 </li>
                             </ul>
                         </div>
@@ -108,7 +106,7 @@
                         <div class="panel-body">
                             <ul class="list-group">
                                 <li class="list-group-item"><a
-                                        href="javascript:$('#showHtml').load('${app}/view/article/article-show.html')">查看文章</a>
+                                        href="javascript:$('#showHtml').load('${app}/view/article/article-show.jsp')">查看文章</a>
                                 </li>
                             </ul>
                         </div>
@@ -125,13 +123,13 @@
                         <div class="panel-body">
                             <ul class="list-group">
                                 <li class="list-group-item"><a
-                                        href="javascript:$('#showHtml').load('${app}/view/user/user-show.html')">查看用户</a>
+                                        href="javascript:$('#showHtml').load('${app}/view/user/user-show.jsp')">查看用户</a>
                                 </li>
                                 <li class="list-group-item"><a
-                                        href="javascript:$('#showHtml').load('${app}/view/user/user-new.html')">入坑统计</a>
+                                        href="javascript:$('#showHtml').load('${app}/view/user/user-new.jsp')">入坑统计</a>
                                 </li>
                                 <li class="list-group-item"><a
-                                        href="javascript:$('#showHtml').load('${app}/view/user/user-map.html')">地域分布</a>
+                                        href="javascript:$('#showHtml').load('${app}/view/user/user-map.jsp')">地域分布</a>
                                 </li>
                             </ul>
                         </div>
@@ -149,7 +147,7 @@
                             <div class="panel-body">
                                 <ul class="list-group">
                                     <li class="list-group-item"><a
-                                            href="javascript:$('#showHtml').load('${app}/view/guru/guru-show.html')">查看上师</a>
+                                            href="javascript:$('#showHtml').load('${app}/view/guru/guru-show.jsp')">查看上师</a>
                                     </li>
                                 </ul>
                             </div>

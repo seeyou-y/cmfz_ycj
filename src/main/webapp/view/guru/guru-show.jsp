@@ -1,13 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" pageEncoding="UTF-8" contentType="text/html; UTF-8" %>
+<c:set value="${pageContext.request.contextPath}" var="app"/>
 <script type="text/javascript">
     $(function () {
         $("#guru-table").jqGrid({
-            url: '/guru/findAllGuruByPage',
+            url: '${app}/guru/findAllGuruByPage',
             //引入bootstrap的UI样式
             styleUI: 'Bootstrap',
             datatype: 'json',
             colNames: ['编号', '法名', '状态', '头像', '创建日期'],
             // 指定表单编辑时提交的路径
-            editurl: '/guru/operGuru',
+            editurl: '${app}/guru/operGuru',
             colModel: [
                 {name: 'id', align: 'center'},
                 {name: 'dharma', align: 'center', editable: true},
@@ -21,7 +24,7 @@
                     edittype: "file",
                     editoptions: {enctype: "multipart/form-data"},
                     formatter: function (value) {
-                        return '<img style="width: auto;height: 30px;" src="/view/guru/image/' + value + '">';
+                        return '<img style="width: auto;height: 30px;" src="${app}/view/guru/image/' + value + '">';
                     }
                 },
                 {name: 'createDate', align: 'center'}
@@ -40,7 +43,7 @@
                 afterSubmit: function (response) {
                     var id = response.responseJSON.data;
                     $.ajaxFileUpload({
-                        url: '/guru/upload',
+                        url: '${app}/guru/upload',
                         secureuri: false,
                         fileElementId: 'photo',
                         data: {id: id},
@@ -57,7 +60,7 @@
                 afterSubmit: function (response) {
                     var id = response.responseJSON.data;
                     $.ajaxFileUpload({
-                        url: '/guru/upload',
+                        url: '${app}/guru/upload',
                         secureuri: false,
                         fileElementId: 'photo',
                         data: {id: id},

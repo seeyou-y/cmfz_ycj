@@ -1,14 +1,17 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" pageEncoding="UTF-8" contentType="text/html; UTF-8" %>
+<c:set value="${pageContext.request.contextPath}" var="app"/>
 <script type="text/javascript">
     $(function () {
         $("#user-table").jqGrid({
-            url: '/user/findAllUserByPage',
+            url: '${app}/user/findAllUserByPage',
             //引入bootstrap的UI样式
             styleUI: 'Bootstrap',
             datatype: 'json',
             colNames: ['编号', '手机', '密码', '加盐', '头像', '法名',
                 '真实姓名', '上师法名', '性别', '省份', '城市', '个性签名', '状态', '创建日期', '最后修改时间'],
             // 指定表单编辑时提交的路径
-            editurl: '/user/operUser',
+            editurl: '${app}/user/operUser',
             colModel: [
                 {name: 'id', align: 'center'},
                 {name: 'phone', align: 'center', editable: true},
@@ -17,7 +20,7 @@
                 {
                     name: 'photo', align: 'center',
                     formatter: function (value) {
-                        return '<img style="width: auto;height: 30px;" src="/view/user/image/' + value + '">';
+                        return '<img style="width: auto;height: 30px;" src="${app}/view/user/image/' + value + '">';
                     }, editable: true, edittype: "file"
                 },
                 {name: 'dharma', align: 'center', editable: true},
@@ -65,7 +68,7 @@
                 afterSubmit: function (response) {
                     var id = response.responseJSON.data;
                     $.ajaxFileUpload({
-                        url: '/user/upload',
+                        url: '${app}/user/upload',
                         secureuri: false,
                         fileElementId: 'photo',
                         data: {id: id},
@@ -82,7 +85,7 @@
                 afterSubmit: function (response) {
                     var id = response.responseJSON.data;
                     $.ajaxFileUpload({
-                        url: '/user/upload',
+                        url: '${app}/user/upload',
                         secureuri: false,
                         fileElementId: 'photo',
                         data: {id: id},
@@ -103,7 +106,7 @@
             $.ajax({
                 type: "post",
                 async: false,
-                url: "/guru/findAllGuru",
+                url: "${app}/guru/findAllGuru",
                 dataType: "json",
                 success: function (data) {
                     if (data != null) {
@@ -122,31 +125,6 @@
             return str;
         }
 
-        /*  //获取所有省
-          function gettypes() {
-              //动态生成select内容
-              var str = "";
-              $.ajax({
-                  type: "post",
-                  async: false,
-                  url: "/province/findAllProvince",
-                  dataType: "json",
-                  success: function (data) {
-                      if (data != null) {
-                          var length = data.length;
-                          for (var i = 0; i < length; i++) {
-                              if (i != length - 1) {
-                                  str += data[i].name + ":" + data[i].name + ";";
-                              } else {
-                                  // 这里是option里面的 value:label
-                                  str += data[i].name + ":" + data[i].name;
-                              }
-                          }
-                      }
-                  }
-              });
-              return str;
-          }*/
     })
 </script>
 <div class="panel panel-info" id="emplist">

@@ -1,10 +1,10 @@
-<meta charset="UTF-8">
-<title>Title</title>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" pageEncoding="UTF-8" contentType="text/html; UTF-8" %>
+<c:set value="${pageContext.request.contextPath}" var="app"/>
 <script type="text/javascript">
     $(function () {
         $.ajax({
-            url: '/user/getProvinceBySex',
+            url: '${app}/user/getProvinceBySex',
             type: 'post',
             dataType: 'json',
             success: function (result) {
