@@ -29,7 +29,7 @@
                     {
                         name: 'publishDate', align: 'center', editable: true,
                         formatter: "date",
-                        formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                        formatoptions: {scrformat: 'Y-m-d', newformat: 'Y-m-d'}
                     },
                     {
                         name: "oper", align: 'center',

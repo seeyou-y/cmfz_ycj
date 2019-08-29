@@ -26,8 +26,8 @@ public class Guru implements Serializable {
     private String status;
 
     private String photo;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JSONField(format = "yyyy-MM-dd")
     private Date createDate;
 
 }

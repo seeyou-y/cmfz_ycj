@@ -21,7 +21,8 @@ spring:
       suffix: .jsp
       prefix: /
   jackson:
-    date-format:
+    date-format: yyyy-MM-hh
+    time-zone: GMT+8
 mybatis:
   mapper-locations: classpath:com/baizhi/mapper/*.xml
   type-aliases-package: com.baizhi.entity

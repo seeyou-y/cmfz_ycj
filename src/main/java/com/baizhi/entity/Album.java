@@ -36,8 +36,8 @@ public class Album implements Serializable {
     private String boradcast;
     @Excel(name = "集数", needMerge = true)
     private Integer count;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JSONField(format = "yyyy-MM-dd")
     private Date createDate;
     @Excel(name = "封面", type = 2, width = 40, needMerge = true)
     private String cover;
