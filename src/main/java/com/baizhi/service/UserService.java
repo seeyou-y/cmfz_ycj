@@ -6,7 +6,7 @@ import java.util.Map;
 
 public interface UserService {
 
-    Map<String, Object> findAllUserByPage(Integer page, Integer rows);
+    Map<String, Object> selectAllUserByPage(Integer page, Integer rows);
 
     Map<String, Object> operUser(String oper, User user);
 
@@ -14,5 +14,5 @@ public interface UserService {
 
     Map<String, Object> selectCountByDays();
 
-    Map<String, Object> findCountByProvinceAndSex();
+    Map<String, Object> selectCountByProvinceAndSex();
 }

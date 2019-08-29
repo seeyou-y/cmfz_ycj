@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public interface BannerService {
-    Map<String, Object> showAllByPage(Integer page, Integer rows);
+    Map<String, Object> selectAllByPage(Integer page, Integer rows);
 
     Map<String, Object> operBanner(HttpServletRequest request, String oper, Banner banner) throws IOException;
 

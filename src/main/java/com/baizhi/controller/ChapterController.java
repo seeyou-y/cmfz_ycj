@@ -30,7 +30,7 @@ public class ChapterController {
      */
     @RequestMapping("findChapterByAlbumId")
     public Map<String, Object> findChapterByAlbumId(Chapter chapter, Integer page, Integer rows) {
-        return chapterService.findAllChapterByAlbumId(chapter, page, rows);
+        return chapterService.selectAllChapterByAlbumId(chapter, page, rows);
     }
 
     /**

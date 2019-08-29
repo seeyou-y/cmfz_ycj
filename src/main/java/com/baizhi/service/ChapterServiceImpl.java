@@ -26,7 +26,7 @@ public class ChapterServiceImpl extends MesResponse implements ChapterService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public Map<String, Object> findAllChapterByAlbumId(Chapter chapter, Integer page, Integer rows) {
+    public Map<String, Object> selectAllChapterByAlbumId(Chapter chapter, Integer page, Integer rows) {
         List<Chapter> chapters = chapterDAO.selectByRowBounds(chapter, setRowBound(page, rows));
         int count = chapterDAO.selectCount(chapter);
         return setJqgridMap(page, count, rows, chapters);

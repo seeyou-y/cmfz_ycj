@@ -30,6 +30,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import redis.clients.jedis.Jedis;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -63,7 +64,8 @@ public class ApplicationTests {
     private UserService userService;
     @Autowired
     private UserDAO userDAO;
-
+    @Autowired
+    private Jedis jedis;
     @Test
     public void Test1() {
         Admin admin = new Admin();
@@ -82,14 +84,7 @@ public class ApplicationTests {
         admins.forEach(a -> System.out.println(a));
     }
 
-    @Test
-    public void Test3() {
-        Map<String, Object> map = bannerService.showAllByPage(1, 2);
-        System.out.println(map.get("page"));
-        System.out.println(map.get("rows"));
-        System.out.println(map.get("records"));
-        System.out.println(map.get("total"));
-    }
+
 
 
     @Test
@@ -219,5 +214,15 @@ public class ApplicationTests {
         int i = adminDAO.insertSelective(admin);
         System.out.println(i);
 
+    }
+
+    @Test
+    public void test7() {
+        /*Boolean aBoolean = jedis.exists("xiaohua");
+        System.out.println(aBoolean);*/
+        /*Long hset = jedis.hset("student", "name", "xiaohua");
+        System.out.println(hset);*/
+        Boolean aBoolean = jedis.hexists("student", "name");
+        System.out.println(aBoolean);
     }
 }

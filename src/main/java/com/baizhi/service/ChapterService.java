@@ -5,7 +5,7 @@ import com.baizhi.entity.Chapter;
 import java.util.Map;
 
 public interface ChapterService {
-    Map<String, Object> findAllChapterByAlbumId(Chapter chapter, Integer page, Integer rows);
+    Map<String, Object> selectAllChapterByAlbumId(Chapter chapter, Integer page, Integer rows);
 
     Map<String, Object> operChapter(String oper, Chapter chapter, String albumId);
 

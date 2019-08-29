@@ -26,7 +26,11 @@
                     {name: 'guruName', align: 'center', editable: true},
                     {name: 'content', align: 'center', editable: true},
                     {name: 'title', align: 'center', editable: true},
-                    {name: 'publishDate', align: 'center', editable: true},
+                    {
+                        name: 'publishDate', align: 'center', editable: true,
+                        formatter: "date",
+                        formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                    },
                     {
                         name: "oper", align: 'center',
                         formatter: function (value, option, rows) {

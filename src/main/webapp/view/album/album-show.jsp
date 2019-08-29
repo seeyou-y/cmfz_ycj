@@ -30,7 +30,11 @@
                         return '<span style="color:#ff8763">共' + value + '集</span>';
                     }
                 },
-                {name: 'createDate', index: 'createDate', width: 150, align: "center"}
+                {
+                    name: 'createDate', index: 'createDate', width: 150, align: "center",
+                    formatter: "date",
+                    formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                }
             ],
             rowNum: 5,
             page: 1,

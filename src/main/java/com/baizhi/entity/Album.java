@@ -3,11 +3,12 @@ package com.baizhi.entity;
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.afterturn.easypoi.excel.annotation.ExcelCollection;
 import cn.afterturn.easypoi.excel.annotation.ExcelIgnore;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -35,8 +36,8 @@ public class Album implements Serializable {
     private String boradcast;
     @Excel(name = "集数", needMerge = true)
     private Integer count;
-    @Excel(name = "创建日期", format = "yyyy年MM月dd日", needMerge = true)
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createDate;
     @Excel(name = "封面", type = 2, width = 40, needMerge = true)
     private String cover;

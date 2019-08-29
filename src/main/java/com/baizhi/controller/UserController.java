@@ -28,7 +28,7 @@ public class UserController {
      */
     @RequestMapping("findAllUserByPage")
     public Map<String, Object> findAllUserByPage(Integer page, Integer rows) {
-        return userService.findAllUserByPage(page, rows);
+        return userService.selectAllUserByPage(page, rows);
     }
 
     /**
@@ -73,7 +73,7 @@ public class UserController {
 
     @RequestMapping("getProvinceBySex")
     public Map<String, Object> getProvinceBySex() {
-        return userService.findCountByProvinceAndSex();
+        return userService.selectCountByProvinceAndSex();
     }
 
 }

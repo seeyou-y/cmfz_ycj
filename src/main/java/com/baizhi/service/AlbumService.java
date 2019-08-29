@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface AlbumService {
-    Map<String, Object> findAllByPage(Integer page, Integer rows);
+    Map<String, Object> selectAllByPage(Integer page, Integer rows);
 
     //jqgrid 工具栏 增删改
     Map<String, Object> operAlbum(String oper, Album album);

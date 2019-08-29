@@ -1,5 +1,6 @@
 package com.baizhi.service;
 
+import com.baizhi.annotation.RedisCache;
 import com.baizhi.api.CustomConstant;
 import com.baizhi.api.MesResponse;
 import com.baizhi.dao.GuruDAO;
@@ -26,7 +27,8 @@ public class GuruServiceImpl extends MesResponse implements GuruService {
     }
 
     @Override
-    public Map<String, Object> findAllGuruByPage(Integer page, Integer rows) {
+    @RedisCache
+    public Map<String, Object> selectAllGuruByPage(Integer page, Integer rows) {
         List<Guru> gurus = guruDAO.selectByRowBounds(new Guru(), setRowBound(page, rows));
         int count = guruDAO.selectCount(new Guru());
         return setJqgridMap(page, count, rows, gurus);

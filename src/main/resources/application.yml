@@ -20,6 +20,8 @@ spring:
     view:
       suffix: .jsp
       prefix: /
+  jackson:
+    date-format:
 mybatis:
   mapper-locations: classpath:com/baizhi/mapper/*.xml
   type-aliases-package: com.baizhi.entity

@@ -1,5 +1,6 @@
 package com.baizhi.service;
 
+import com.baizhi.annotation.RedisCache;
 import com.baizhi.api.CustomConstant;
 import com.baizhi.api.MesResponse;
 import com.baizhi.dao.ArticleDAO;
@@ -24,7 +25,8 @@ public class ArticleServiceImpl extends MesResponse implements ArticleService {
     private GuruDAO guruDAO;
 
     @Override
-    public Map<String, Object> findAllArticleByPage(Integer page, Integer rows) {
+    @RedisCache
+    public Map<String, Object> selectAllArticleByPage(Integer page, Integer rows) {
         List<Article> articles = articleDAO.selectByRowBounds(new Article(), setRowBound(page, rows));
         int count = articleDAO.selectCount(new Article());
         return setJqgridMap(page, count, rows, articles);

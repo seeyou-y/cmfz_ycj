@@ -34,7 +34,10 @@ public class GuruController {
      */
     @RequestMapping("findAllGuruByPage")
     public Map<String, Object> findAllGuruByPage(Integer page, Integer rows) {
-        return guruService.findAllGuruByPage(page, rows);
+        System.out.println("11111111111111111111111111111");
+        Map<String, Object> map = guruService.selectAllGuruByPage(page, rows);
+        System.out.println(map);
+        return map;
     }
 
     /**

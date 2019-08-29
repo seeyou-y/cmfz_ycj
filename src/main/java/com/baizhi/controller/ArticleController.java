@@ -29,7 +29,7 @@ public class ArticleController {
      */
     @RequestMapping("findAllArticleByPage")
     public Map<String, Object> findAllArticleByPage(Integer page, Integer rows) {
-        return articleService.findAllArticleByPage(page, rows);
+        return articleService.selectAllArticleByPage(page, rows);
     }
 
     /**

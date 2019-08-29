@@ -26,7 +26,7 @@ public class BannerController extends MesResponse {
      */
     @RequestMapping("showAllBanner")
     public Map<String, Object> showAllBanner(Integer page, Integer rows) {
-        return bannerService.showAllByPage(page, rows);
+        return bannerService.selectAllByPage(page, rows);
     }
 
     /**

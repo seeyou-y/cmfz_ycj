@@ -1,5 +1,6 @@
 package com.baizhi.service;
 
+import com.baizhi.annotation.RedisCache;
 import com.baizhi.api.CustomConstant;
 import com.baizhi.api.MesResponse;
 import com.baizhi.dao.UserDAO;
@@ -20,7 +21,8 @@ public class UserServiceImpl extends MesResponse implements UserService {
     private UserDAO userDAO;
 
     @Override
-    public Map<String, Object> findAllUserByPage(Integer page, Integer rows) {
+    @RedisCache
+    public Map<String, Object> selectAllUserByPage(Integer page, Integer rows) {
         List<User> users = userDAO.selectByRowBounds(new User(), setRowBound(page, rows));
         int count = userDAO.selectCount(new User());
         return setJqgridMap(page, count, rows, users);
@@ -76,7 +78,8 @@ public class UserServiceImpl extends MesResponse implements UserService {
     }
 
     @Override
-    public Map<String, Object> findCountByProvinceAndSex() {
+    @RedisCache
+    public Map<String, Object> selectCountByProvinceAndSex() {
         HashMap<String, Object> map = new HashMap<>();
         List<UserSexCount> grilGroupByProcince = userDAO.findGrilGroupByProcince();
         List<UserSexCount> boyGroupByProcince = userDAO.findBoyGroupByProcince();

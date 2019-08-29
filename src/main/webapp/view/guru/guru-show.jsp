@@ -27,7 +27,11 @@
                         return '<img style="width: auto;height: 30px;" src="${app}/view/guru/image/' + value + '">';
                     }
                 },
-                {name: 'createDate', align: 'center'}
+                {
+                    name: 'createDate', align: 'center',
+                    formatter: "date",
+                    formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                }
             ],
             pager: '#guru-pager',
             rowNum: 5,

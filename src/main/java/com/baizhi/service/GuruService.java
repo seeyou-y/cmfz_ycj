@@ -8,7 +8,7 @@ import java.util.Map;
 public interface GuruService {
     List<Guru> findAll();
 
-    Map<String, Object> findAllGuruByPage(Integer page, Integer rows);
+    Map<String, Object> selectAllGuruByPage(Integer page, Integer rows);
 
     Map<String, Object> operGuru(String oper, Guru guru);
 

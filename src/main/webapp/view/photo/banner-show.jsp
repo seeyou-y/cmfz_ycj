@@ -27,9 +27,17 @@
                     edittype: "select",
                     editoptions: {value: "正常:正常;冻结:冻结"}
                 },
-                {name: 'createDate', align: 'center'},
+                {
+                    name: 'createDate', align: 'center',
+                    formatter: "date",
+                    formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                },
                 {name: 'description', align: 'center', editable: true},
-                {name: 'lastUpdateDate', align: 'center'}
+                {
+                    name: 'lastUpdateDate', align: 'center',
+                    formatter: "date",
+                    formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                }
             ],
             pager: '#banner-pager',
             rowNum: 5,

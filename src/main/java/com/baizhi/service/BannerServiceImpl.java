@@ -1,5 +1,6 @@
 package com.baizhi.service;
 
+import com.baizhi.annotation.RedisCache;
 import com.baizhi.api.CustomConstant;
 import com.baizhi.api.MesResponse;
 import com.baizhi.dao.BannerDAO;
@@ -22,7 +23,8 @@ public class BannerServiceImpl extends MesResponse implements BannerService {
     private BannerDAO bannerDAO;
 
     @Override
-    public Map<String, Object> showAllByPage(Integer page, Integer rows) {
+    @RedisCache
+    public Map<String, Object> selectAllByPage(Integer page, Integer rows) {
         RowBounds rowBounds = new RowBounds((page - 1) * rows, rows);
         List<Banner> banners = bannerDAO.selectByRowBounds(new Banner(), rowBounds);
         int records = bannerDAO.selectCount(new Banner());

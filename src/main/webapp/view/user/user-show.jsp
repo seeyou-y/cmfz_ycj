@@ -51,8 +51,16 @@
                     edittype: 'select',
                     editoptions: {value: "正常:正常;冻结:冻结"}
                 },
-                {name: 'createDate', align: 'center'},
-                {name: 'lastUpdateDate', align: 'center'}
+                {
+                    name: 'createDate', align: 'center',
+                    formatter: "date",
+                    formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                },
+                {
+                    name: 'lastUpdateDate', align: 'center',
+                    formatter: "date",
+                    formatoptions: {scrformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s'}
+                }
             ],
             pager: '#user-pager',
             rowNum: 5,

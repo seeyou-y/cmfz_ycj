@@ -34,7 +34,7 @@ public class AlbumController {
      */
     @RequestMapping("showAllAlbumByPage")
     public Map<String, Object> showAllAlbumByPage(Integer page, Integer rows) {
-        return albumService.findAllByPage(page, rows);
+        return albumService.selectAllByPage(page, rows);
     }
 
     /**

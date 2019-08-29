@@ -1,5 +1,6 @@
 package com.baizhi.service;
 
+import com.baizhi.annotation.RedisCache;
 import com.baizhi.api.CustomConstant;
 import com.baizhi.api.MesResponse;
 import com.baizhi.dao.AlbumDAO;
@@ -25,7 +26,8 @@ public class AlbumServiceImpl extends MesResponse implements AlbumService {
     private ChapterDAO chapterDAO;
 
     @Override
-    public Map<String, Object> findAllByPage(Integer page, Integer rows) {
+    @RedisCache
+    public Map<String, Object> selectAllByPage(Integer page, Integer rows) {
         List<Album> albums = albumDAO.selectByRowBounds(new Album(), setRowBound(page, rows));
         int count = albumDAO.selectCount(new Album());
         return setJqgridMap(page, count, rows, albums);
@@ -63,6 +65,7 @@ public class AlbumServiceImpl extends MesResponse implements AlbumService {
     }
 
     @Override
+    @RedisCache
     public List<Album> findAll(HttpServletRequest request) {
         List<Album> albums = albumDAO.selectAll();
         for (Album album : albums) {
