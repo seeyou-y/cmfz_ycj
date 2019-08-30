@@ -23,6 +23,9 @@ spring:
   jackson:
     date-format: yyyy-MM-hh
     time-zone: GMT+8
+  data:
+    elasticsearch:
+      cluster-nodes: 192.168.247.135:9300
 mybatis:
   mapper-locations: classpath:com/baizhi/mapper/*.xml
   type-aliases-package: com.baizhi.entity

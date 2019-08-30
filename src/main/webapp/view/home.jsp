@@ -108,6 +108,9 @@
                                 <li class="list-group-item"><a
                                         href="javascript:$('#showHtml').load('${app}/view/article/article-show.jsp')">查看文章</a>
                                 </li>
+                                <li class="list-group-item"><a
+                                        href="javascript:$('#showHtml').load('${app}/view/article/article-search.jsp')">搜索文章</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -19,7 +19,6 @@ import java.util.*;
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
-
     /**
      * jqGrid 分页查询
      *
@@ -31,7 +30,6 @@ public class ArticleController {
     public Map<String, Object> findAllArticleByPage(Integer page, Integer rows) {
         return articleService.selectAllArticleByPage(page, rows);
     }
-
     /**
      * jqGrid工具栏增删改
      *
@@ -104,5 +102,11 @@ public class ArticleController {
         map.put("total_count", files.length);
         map.put("file_list", list);
         return map;
+    }
+
+    @RequestMapping("searchArticle")
+    public List<Article> searchArticle(String content) {
+        List<Article> articles = articleService.searchArticle(content);
+        return articles;
     }
 }
